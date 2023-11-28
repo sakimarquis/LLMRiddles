@@ -7,7 +7,7 @@ from .llm_client import LLMFlaskClient
 @lru_cache()
 def _get_mistral_7b_instruct_server(host: str, port: int):
     from .llm_server import LLMInstance, create_app
-    core = LLMInstance('Mistral-7B-Instruct-v0.1')
+    core = LLMInstance('mistralai/Mistral-7B-Instruct-v0.1')
     app = create_app(core)
     app.run(host=host, port=port)
 
