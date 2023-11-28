@@ -8,7 +8,7 @@ class LLMInstance:
 
     def __init__(self, model_path: str, device: str = "cuda"):
 
-        self.model = AutoModelForCausalLM.from_pretrained(model_path)
+        self.model = AutoModelForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True)
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.model.to(device)
         self.device = device
